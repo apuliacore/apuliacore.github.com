@@ -2,6 +2,7 @@
 title: Apuliacore Manifesto
 layout: default
 ---
+# Apuliacore Manifesto
 
 Siamo studentə e giovani lavoratorə pugliesi, promuoviamo eventi sociali e culturali nel nostro territorio. Rivolgiamo la nostra attenzione in particolare ad eventi organizzati da realtà locali, no-profit, pubblici, underground che non diffondano ideali fascisti, razzisti, sessisti e omotransfobici.
 	
