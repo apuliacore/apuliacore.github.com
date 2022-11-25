@@ -1,0 +1,21 @@
+---
+layout: default
+---
+
+<form name='event_form'>
+	<label for='event_name'>Nome</label><br>
+	<input type='text' id='event_name' name='event_name' required=True placeholder="Come si chiama l'evento?"><br><br>
+	<label for='event_location'>Location</label><br>
+	<input type='text' id='event_location' name='event_location' required=True placeholder="Dove si terrà l'evento?"><br><br>
+	<label for='event_date'>Data</label><br>
+	<input type='date' id='event_date'  name='event_date'required=True placeholder="Quando si terrà l'evento?"><br><br>
+	<label for='event_start_time'>Ora inizio</label>
+	<label for='event_end_time'>Ora fine</label><br>
+	<input type='time' id='event_start_time' name='event_start_time' required=True>
+	<input type='time' id='event_end_time' name='event_end_time'><br><br>
+	<label for='event_description'>Descrizione</label><br>
+	<textarea id='event_description' name='event_description' required=True maxlength="900" cols=50 style='resize: none' placeholder="Scrivi qui più informazioni su programma, ospiti, eventuali costi, ecc. (max 900 caratteri)"></textarea><br><br>
+	<label for='event_image' name='event_image'>Locandina (in formato <code>.jpeg</code> o <code>.png</code>)</label><br>
+	<input type='file' id='event_image' accept="image/png, image/jpeg"><br><br>
+	<input type='submit' id='event_submit' value="Consiglia l'evento" formmethod="post" formaction="{{ url_for('registra_evento') }}"><br><br>
+</form>

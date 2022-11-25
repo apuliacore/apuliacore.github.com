@@ -7,17 +7,22 @@
     <link rel="stylesheet" href="/css/style.css">
   </head>
   <header>
-    <figure>
-      <img src="assets/images/banner.png" style="max-width:100%;">
-    </figure>
+    <div style="display: flex; background-color: black; box-shadow: 0px 0px 5px 5px gray;">
+      <div style="margin-right: auto;">
+        <a href="/"><img src="assets/images/banner.png" style="width: 150px;"></a>
+      </div>
+      <div style="">
+        <ol style="display: flex; list-style-type: none;">
+          <li class="nav-el"><a href="/">Home</a></li>
+          <li class="nav-el"><a href="/manifesto.html">Manifesto</a></li>
+          <li class="nav-el"><a href="/proponi_evento.html">Proponi</a></li>
+        </ol>
+      </div>
   </header>
   <body class=body>
-    <section>
-      {{ content }}
-    </section>
+    {{ content }}
     <footer>
-      <hr>
-      &copy; Apuliacore 2022
+      <p style="text-align: center;">&copy; Apuliacore 2022</p>
     </footer>
   </body>
 </html>

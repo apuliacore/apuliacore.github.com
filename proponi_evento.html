@@ -1,0 +1,24 @@
+---
+layout: default
+---
+
+<div class="content">
+	<h1>Proponi un evento</h1>
+	<form name='event_form' class="event-form">
+		<label for='name'>Nome</label><br>
+		<input type='text' id='name' name='name' required=True placeholder="Come si chiama l'evento?"><br><br>
+		<label for='venue'>Location</label><br>
+		<input type='text' id='venue' name='venue' required=True placeholder="Dove si terrà l'evento?"><br><br>
+		<label for='date'>Data</label><br>
+		<input type='date' id='date'  name='date'required=True placeholder="Quando si terrà l'evento?"><br><br>
+		<label for='start_time'>Ora inizio</label>
+		<label for='end_time'>Ora fine</label><br>
+		<input type='time' id='start_time' name='start_time' required=True>
+		<input type='time' id='end_time' name='end_time'><br><br>
+		<label for='description'>Descrizione</label><br>
+		<textarea id='description' name='description' required=True maxlength="900" cols=50 style='resize: none' placeholder="Scrivi qui più informazioni su programma, ospiti, eventuali costi, ecc. (max 900 caratteri)"></textarea><br><br>
+		<label for='poster' name='poster'>Locandina (in formato <code>.jpeg</code> o <code>.png</code>)</label><br>
+		<input type='file' id='poster' accept="image/png, image/jpeg"><br><br>
+		<input type='submit' id='event_submit' value="Consiglia l'evento" formmethod="post" formaction="http://127.0.0.1:5000/insert"><br><br>
+	</form>
+</div>
