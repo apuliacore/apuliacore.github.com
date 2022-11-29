@@ -1,6 +1,13 @@
 ---
 ---
 
+$pale-purple-pantone: #fce3f7ff;
+$black-coral: #576066ff;
+$gold-crayola: #f9c784ff;
+$violet-ryb: #7803a3ff;
+$thistle: #f1cdffff;
+
+
 h1, h2, p, li, a, label {
 	font-family: sans-serif;
 }
@@ -31,19 +38,21 @@ h1, h2, p, li, a, label {
 }
 
 .homepage-section {
-	background-color: #fce3f7;
 	max-width: 80%;
+	height: 50vh;
+	background-color: $gold-crayola;
 	display: flex;
 	margin-left: auto;
 	margin-right: auto;
 	margin-top: 3%;
 	margin-bottom: 3%;
 	padding: 1%;
-	border-radius: 10px;
 }
 
 .homepage-section-text-element {
 	max-width: 60%;
+	display: flex;
+	margin: auto;
 }
 
 .homepage-section-action-element {
@@ -52,7 +61,7 @@ h1, h2, p, li, a, label {
 }
 
 .alternate {
-	background-color: #f5e3fc;
+	background-color: $pale-purple-pantone;
 }
 
 .left {
@@ -67,23 +76,32 @@ h1, h2, p, li, a, label {
 }
 
 .action-element {
+	text-align: center;
 	margin: 4px;
 	padding: 4px;
-	border: 1px;
-	border-style: solid;
-	text-align: center;
-	background-color: white;
-	border-radius: 10px;
+}
+
+.action-element a {
+	text-decoration: none;
 }
 
 .action-element:hover {
 	border-color: #7803a3;	
+	text-decoration: underline;
+}
+
+.home-icon {
+	width: 150px;
+	transition: transform .2s;
+}
+
+.home-icon:hover {
+	transform: scale(1.1);
 }
 
 @media screen and (max-width: 800px) {
 	.content {
 		max-width: 100%;
-		margin: 5%;
 	}
 
 	.homepage-section {
