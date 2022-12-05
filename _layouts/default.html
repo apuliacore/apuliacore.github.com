@@ -7,22 +7,34 @@
     <link rel="stylesheet" href="/css/style.css">
   </head>
   <header>
-    <div style="display: flex; background-color: #fce3f7;">
-      <div style="margin-right: auto;">
+  </header>
+  <body class=body>
+    <div class="top-bar">
+      <div style="margin-right: auto; margin-left: 10px; margin-top: 5px;">
         <a href="/"><img src="assets/images/logo_transp_black.png" class="home-icon"></a>
       </div>
-      <div style="">
+      <div class="nav-items">
         <ol style="display: flex; list-style-type: none;">
           <li class="action-element"><a href="/">Home</a></li>
           <li class="action-element"><a href="/manifesto.html">Manifesto</a></li>
           <li class="action-element"><a href="/proponi_evento.html">Proponi</a></li>
         </ol>
       </div>
-  </header>
-  <body class=body>
+      <div class="hamburger-menu">
+        <input id="menu__toggle" type="checkbox" />
+        <label class="menu__btn" for="menu__toggle">
+          <span></span>
+        </label>
+        <ul class="menu__box">
+          <li><a class="menu__item" href="/">Home</a></li>
+          <li><a class="menu__item" href="/manifesto.html">Manifesto</a></li>
+          <li><a class="menu__item" href="/proponi_evento.html">Proponi</a></li>
+        </ul>
+      </div>
+    </div>
     {{ content }}
-    <footer>
-      <p style="text-align: center;">&copy; Apuliacore 2022</p>
-    </footer>
+  <footer>
+    <p style="text-align: center;">&copy; Apuliacore 2022</p>
+  </footer>
   </body>
 </html>
