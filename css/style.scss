@@ -8,15 +8,21 @@ $violet-ryb: #7803a3ff;
 $thistle: #f1cdffff;
 
 
-h1, h2, p, li, a, label {
+h1, h2, p, li, a, label, span {
 	font-family: sans-serif;
 }
 
 .nav-el {
 	margin: 4px;
 	padding: 4px;
-	background-color: white;
-	border-radius: 10px;
+}
+
+.nav-el a {
+	text-decoration: none;
+}
+
+.nav-el:hover {
+	text-decoration: underline;
 }
 
 .top-bar {
@@ -26,6 +32,7 @@ h1, h2, p, li, a, label {
 
 .body {
 	max-width: 100%;
+	background-color: $gold-crayola;
 	margin: auto;
 }
 
@@ -36,14 +43,10 @@ h1, h2, p, li, a, label {
 }
 
 .event-form {
-	border: 1px;
-	border-style: solid;
-	padding: 1%;
-	border-radius: 10px;
 }
 
 .homepage-section {
-	height: 80vh;
+	height: 70vh;
 	background-color: $gold-crayola;
 	display: flex;
 	padding: 1%;
@@ -96,7 +99,24 @@ h1, h2, p, li, a, label {
 
 .action-icon {
 	width: 50%;
-	padding: 10%;
+	padding: 10% 10% 2% 10%;
+}
+
+.action-button {
+	background-color: $thistle;
+	border-radius: 20px;
+	text-align: center;
+	width: 300px;
+	transition: transform .2s;
+	margin: auto;
+}
+
+.action-button a {
+	text-decoration: none;
+}
+
+.action-button:hover {
+	transform: scale(1.1);
 }
 
 .home-icon {
@@ -110,6 +130,23 @@ h1, h2, p, li, a, label {
 
 .hamburger-menu {
 	visibility: hidden;
+}
+
+.form-el-large {
+	width: 100%;
+	border-radius: 5px;
+}
+
+.form-el-small {
+	border-radius: 5px;
+}
+
+.form-el-div {
+	padding: 0% 0% 3% 0%;
+}
+
+.form-el-inline {
+	padding: 0% 2% 0% 0%;
 }
 
 @media screen and (max-width: 800px) {
@@ -138,6 +175,22 @@ h1, h2, p, li, a, label {
 
 	.homepage-section-action-element {
 		flex-direction: column;
+	}
+
+	.action-element {
+		width: 120px;
+	}
+
+	.action-icon {
+		padding-top: 15%;
+	}
+
+	.action-button {
+		width: 150px;
+	}
+
+	.form-el-div {
+		padding: 0% 0% 5% 0%;
 	}
 
 }
