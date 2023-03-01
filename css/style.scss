@@ -7,6 +7,9 @@ $gold-crayola: #f9c784ff;
 $violet-ryb: #7803a3ff;
 $thistle: #f1cdffff;
 
+$light-gray: #f2f2f2;
+$gray: #e0e0e0;
+$dark-gray: 7c7c7c;
 
 h1, h2, p, li, a, label, span {
 	font-family: sans-serif;
@@ -19,6 +22,7 @@ h1, h2, p, li, a, label, span {
 
 .nav-el a {
 	text-decoration: none;
+	color: black;
 }
 
 .nav-el:hover {
@@ -27,12 +31,12 @@ h1, h2, p, li, a, label, span {
 
 .top-bar {
 	display: flex;
-	background-color: $pale-purple-pantone;
+	background-color: $gray;
 }
 
 .body {
 	max-width: 100%;
-	background-color: $gold-crayola;
+	background-color: $light-gray;
 	margin: auto;
 }
 
@@ -47,7 +51,7 @@ h1, h2, p, li, a, label, span {
 
 .homepage-section {
 	height: 70vh;
-	background-color: $gold-crayola;
+	background-color: $light-gray;
 	display: flex;
 	padding: 1%;
 }
@@ -68,7 +72,7 @@ h1, h2, p, li, a, label, span {
 }
 
 .alternate {
-	background-color: $pale-purple-pantone;
+	background-color: white;
 }
 
 .left {
@@ -91,6 +95,7 @@ h1, h2, p, li, a, label, span {
 
 .action-element a {
 	text-decoration: none;
+	color: black;
 }
 
 .action-element:hover {
@@ -103,7 +108,7 @@ h1, h2, p, li, a, label, span {
 }
 
 .action-button {
-	background-color: $thistle;
+	background-color: $gray;
 	border-radius: 20px;
 	text-align: center;
 	width: 300px;
@@ -113,6 +118,7 @@ h1, h2, p, li, a, label, span {
 
 .action-button a {
 	text-decoration: none;
+	color: black;
 }
 
 .action-button:hover {
@@ -232,7 +238,7 @@ h1, h2, p, li, a, label, span {
   position: absolute;
   width: 100%;
   height: 2px;
-  background-color: $violet-ryb;
+  background-color: black;
   transition-duration: .25s;
 }
 .menu__btn > span::before {
@@ -252,14 +258,14 @@ h1, h2, p, li, a, label, span {
   margin: 0;
   padding: 80px 0;
   list-style: none;
-  background-color: $pale-purple-pantone;
+  background-color: $light-gray;
   box-shadow: 2px 2px 6px rgba(0, 0, 0, .4);
   transition-duration: .25s;
 }
 .menu__item {
   display: block;
   padding: 12px 24px;
-  color: #333;
+  color: black;
   font-family: 'Roboto', sans-serif;
   font-size: 20px;
   font-weight: 600;
@@ -268,6 +274,6 @@ h1, h2, p, li, a, label, span {
   transition-duration: .25s;
 }
 .menu__item:hover {
-  background-color: $thistle;
+  background-color: $gray;
 }
 
