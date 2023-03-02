@@ -1,11 +1,11 @@
 ---
 ---
 
-$pale-purple-pantone: #fce3f7;
-$black-coral: #576066;
-$gold-crayola: #f9c784;
-$violet-ryb: #7803a3;
-$thistle: #f1cdff;
+$pale-purple-pantone: #fce3f7ff;
+$black-coral: #576066ff;
+$gold-crayola: #f9c784ff;
+$violet-ryb: #7803a3ff;
+$thistle: #f1cdffff;
 
 $light-gray: #f2f2f2;
 $gray: #e0e0e0;
@@ -31,12 +31,12 @@ h1, h2, p, li, a, label, span {
 
 .top-bar {
 	display: flex;
-	background-color: $thistle;
+	background-color: $gray;
 }
 
 .body {
 	max-width: 100%;
-	background-color: $pale-purple-pantone;
+	background-color: $light-gray;
 	margin: auto;
 }
 
@@ -51,7 +51,7 @@ h1, h2, p, li, a, label, span {
 
 .homepage-section {
 	height: 70vh;
-	background-color: $pale-purple-pantone;
+	background-color: $light-gray;
 	display: flex;
 	padding: 1%;
 }
@@ -108,7 +108,7 @@ h1, h2, p, li, a, label, span {
 }
 
 .action-button {
-	background-color: $thistle;
+	background-color: $gray;
 	border-radius: 20px;
 	text-align: center;
 	width: 300px;
@@ -258,7 +258,7 @@ h1, h2, p, li, a, label, span {
   margin: 0;
   padding: 80px 0;
   list-style: none;
-  background-color: $pale-purple-pantone;
+  background-color: $light-gray;
   box-shadow: 2px 2px 6px rgba(0, 0, 0, .4);
   transition-duration: .25s;
 }
@@ -274,6 +274,6 @@ h1, h2, p, li, a, label, span {
   transition-duration: .25s;
 }
 .menu__item:hover {
-  background-color: $thistle;
+  background-color: $gray;
 }
 
