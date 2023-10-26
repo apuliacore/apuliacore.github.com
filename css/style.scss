@@ -11,6 +11,11 @@ $light-gray: #f2f2f2;
 $gray: #e0e0e0;
 $dark-gray: 7c7c7c;
 
+$black-bean: #280000;
+$cream: #FFFED7;
+$light-cyan: #D6FBFF;
+$celeste: #ABF4FC;
+
 h1, h2, h3, h4, p, li, a, label, span {
 	font-family: sans-serif;
 }
@@ -31,7 +36,7 @@ h1, h2, h3, h4, p, li, a, label, span {
 
 .top-bar {
 	display: flex;
-	background-color: $gray;
+	background-color: $cream;
 }
 
 .body {
@@ -51,7 +56,7 @@ h1, h2, h3, h4, p, li, a, label, span {
 
 .homepage-section {
 	height: 70vh;
-	background-color: $light-gray;
+	background-color: $light-cyan;
 	display: flex;
 	padding: 1%;
 }
@@ -108,7 +113,7 @@ h1, h2, h3, h4, p, li, a, label, span {
 }
 
 .action-button {
-	background-color: $gray;
+	background-color: $celeste;
 	border-radius: 20px;
 	text-align: center;
 	width: 300px;
