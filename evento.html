@@ -94,7 +94,7 @@
     
     <div>
     <h1>Proponi un evento</h1>
-    <form name='event_form'>
+    <form id='event_form' name='event_form'>
         <div>
             <input type='text' id='name' name='name' required=True placeholder="Nome dell'evento (Es: Festa di Carola)">
         </div>
@@ -126,6 +126,7 @@
 
 
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <script src="jquery-1.6.1.js"></script>
     <script>
         // Init TWA
         Telegram.WebApp.ready();
