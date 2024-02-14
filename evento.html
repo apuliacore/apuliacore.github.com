@@ -143,13 +143,13 @@
         //     Telegram.WebApp.showAlert('Main Button was clicked')
         // });	
 
-        Telegram.WebApp.MainButton.setText('Choose Color').show().onClick(function () {
+        Telegram.WebApp.MainButton.onClick(function () {
             const data = JSON.stringify({'ciao': 10});
             Telegram.WebApp.sendData(data);
             Telegram.WebApp.close();
         }
         
-        // Telegram.WebApp.MainButton.show();
+        Telegram.WebApp.MainButton.show();
 
         // Function to call showPopup API
         function showPopup() {
