@@ -148,8 +148,10 @@
             // const data = JSON.stringify({'ciao': 10});
             // const data = JSON.stringify($('form').serializeArray());
             var form = new FormData(document.getElementById('event_form'));
-            // const data = JSON.stringify(form);
-            Telegram.WebApp.sendData(form);
+            var data = {};
+            form.forEach((value,key) => data[key] = value);
+            var json = JSON.stringify(data);
+            Telegram.WebApp.sendData(json);
             Telegram.WebApp.close();
         });
         
