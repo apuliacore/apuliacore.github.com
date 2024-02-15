@@ -65,6 +65,9 @@
         .inline-span {
             padding: 0px 10px 0px 0px;
         }
+        .short-text-input {
+            border-color: transparent transparent black transparent;
+        }
     </style>
 </head>
 
@@ -74,10 +77,10 @@
     <h1>Proponi un evento</h1>
     <form id='event_form' name='event_form'>
         <div class='form-row'>
-            <input type='text' id='name' name='name' required=True placeholder="Nome dell'evento">
+            <input type='text' class='short-text-input' id='name' name='name' required=True placeholder="Nome dell'evento">
         </div>
         <div class='form-row'>
-            <input type='text' id='venue' name='venue' required=True placeholder="Luogo dell'evento">
+            <input type='text' class='short-text-input' id='venue' name='venue' required=True placeholder="Luogo dell'evento">
         </div>
         <div style="display: flex;" class="form-row">
             <span class='inline-span'>Dal</span>
