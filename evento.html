@@ -68,21 +68,23 @@
     <h1>Proponi un evento</h1>
     <form id='event_form' name='event_form'>
         <div>
-            <input type='text' id='name' name='name' required=True placeholder="Nome dell'evento (Es: Festa di Carola)">
+            <input type='text' id='name' name='name' required=True placeholder="Nome dell'evento">
         </div>
         <div>
-            <input type='text' id='venue' name='venue' required=True placeholder="Luogo dell'evento (Es: Parco 2 Giugno, Bari)">
+            <input type='text' id='venue' name='venue' required=True placeholder="Luogo dell'evento">
         </div>
         <div style="display: flex;">
-            <span>Il</span>
-            <span><input type='date' id='start_date'  name='start_date' required=True placeholder="Quando si terrà l'evento?"></span>
-            <span>dalle</span>
-            <span><input type='time' id='start_time' name='start_time' required=True></span>
+            <span>Dal</span>
+            <span><input type='date' id='start_date'  name='start_date' required=True></span>
             <span>alle</span>
-            <span><input type='time' id='end_time' name='end_time'></span>
+            <span><input type='time' id='start_time' name='start_time' required=True></span>
+            <span>al</span>
+            <span><input type='date' id='end_date'  name='end_date' required=True></span>
+            <span>alle</span>
+            <span><input type='time' id='end_time' name='end_time' required=True></span>
         </div>
         <div>
-            <textarea id='description' name='description' required=True maxlength="900" cols=50 style='resize: none; height: 60px' placeholder="Scrivi qui più informazioni su programma, ospiti, eventuali costi, ecc. (max 900 caratteri)"></textarea>
+            <textarea id='description' name='description' required=True maxlength="900" cols=50 style='resize: none; height: 60px' placeholder="Scrivi qui una breve descrizione dell'evento."></textarea>
         </div>
         <div style="display: flex;">
             <span>Da pubblicare il</span>
