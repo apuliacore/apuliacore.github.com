@@ -84,13 +84,11 @@
         </div>
         <div style="display: flex;" class="form-row">
             <span class='inline-span'>Dal</span>
-            <span class='inline-span'><input type='date' class='bottom-border' id='start_date'  name='start_date' required=True></span>
-            <span class='inline-span'>alle</span>
-            <span class='inline-span'><input type='time' class='bottom-border' id='start_time' name='start_time' required=True></span>
+            <span class='inline-span'><input type='datetime-local' class='bottom-border' id='start_datetime'  name='start_datetime' required=True></span>
+        </div>
+        <div style="display: flex;" class="form-row">
             <span class='inline-span'>al</span>
-            <span class='inline-span'><input type='date' class='bottom-border' id='end_date'  name='end_date' required=True></span>
-            <span class='inline-span'>alle</span>
-            <span class='inline-span'><input type='time' class='bottom-border' id='end_time' name='end_time' required=True></span>
+            <span class='inline-span'><input type='datetime-local' class='bottom-border' id='end_datetime'  name='end_datetime' required=True></span>
         </div>
         <div class='form-row'>
             <textarea id='description' name='description' required=True maxlength="900" cols=50 style='resize: none; height: 60px' placeholder="Scrivi qui una breve descrizione dell'evento."></textarea>
@@ -98,8 +96,6 @@
         <div style="display: flex;" class="form-row">
             <span class='inline-span'>Da pubblicare il</span>
             <span class='inline-span'><input type='date' class='bottom-border' id='publication_date'  name='publication_date' required=True></span>
-            <span class='inline-span'>prova</span>
-            <span class='inline-span'><input type='datetime-local' class='bottom-border' required=True></span>
         </div>
         <div class='form-row'>
             <span class='inline-span'><label for='poster' name='poster'>Locandina (in formato <code>.jpeg</code> o <code>.png</code>)</label></span>
