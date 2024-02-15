@@ -83,22 +83,22 @@
             <input type='text' class='bottom-border' id='venue' name='venue' required=True placeholder="Luogo dell'evento">
         </div>
         <div style="display: flex;" class="form-row">
-            <span class='inline-span'>Dal</span>
+            <span class='inline-span'><p>Dal</p></span>
             <span class='inline-span'><input type='datetime-local' class='bottom-border' id='start_datetime'  name='start_datetime' required=True></span>
         </div>
         <div style="display: flex;" class="form-row">
-            <span class='inline-span'>al</span>
+            <span class='inline-span'><p>al</p></span>
             <span class='inline-span'><input type='datetime-local' class='bottom-border' id='end_datetime'  name='end_datetime' required=True></span>
         </div>
         <div class='form-row'>
             <textarea id='description' name='description' required=True maxlength="900" cols=50 style='resize: none; height: 100px' placeholder="Scrivi qui una breve descrizione dell'evento."></textarea>
         </div>
         <div style="display: flex;" class="form-row">
-            <span class='inline-span'>Da pubblicare il</span>
+            <span class='inline-span'><p>Da pubblicare il</p></span>
             <span class='inline-span'><input type='date' class='bottom-border' id='publication_date'  name='publication_date' required=True></span>
         </div>
         <div class='form-row'>
-            <span class='inline-span'><label for='poster' name='poster'>Locandina (in formato <code>.jpeg</code> o <code>.png</code>)</label></span>
+            <span class='inline-span'><label for='poster' name='poster'><p>Locandina (in formato <code>.jpeg</code> o <code>.png</code>)</p></label></span>
             <span class='inline-span'><input type='file' id='poster' accept="image/png, image/jpeg"></span>
         </div>
     </form>
