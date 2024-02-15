@@ -146,8 +146,9 @@
 
         Telegram.WebApp.MainButton.onClick(function () {
             // const data = JSON.stringify({'ciao': 10});
-            const data = JSON.stringify($('form').serializeArray());
-            console.log(data)
+            // const data = JSON.stringify($('form').serializeArray());
+            var form = new FormData(document.getElementById('event_form'));
+            const data = JSON.stringify(form);
             Telegram.WebApp.sendData(data);
             Telegram.WebApp.close();
         });
