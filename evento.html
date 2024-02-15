@@ -59,6 +59,12 @@
         #viewport-params-expand {
             top: 30px;
         }
+        #form-row {
+            padding: 10px 0px 10px 0px;
+        }
+        #inline-span {
+            padding: 0px 10px 0px 0px;
+        }
     </style>
 </head>
 
@@ -67,30 +73,30 @@
     <div>
     <h1>Proponi un evento</h1>
     <form id='event_form' name='event_form'>
-        <div>
+        <div class='form-row'>
             <input type='text' id='name' name='name' required=True placeholder="Nome dell'evento">
         </div>
-        <div>
+        <div class='form-row'>
             <input type='text' id='venue' name='venue' required=True placeholder="Luogo dell'evento">
         </div>
-        <div style="display: flex;">
-            <span>Dal</span>
-            <span><input type='date' id='start_date'  name='start_date' required=True></span>
-            <span>alle</span>
-            <span><input type='time' id='start_time' name='start_time' required=True></span>
-            <span>al</span>
-            <span><input type='date' id='end_date'  name='end_date' required=True></span>
-            <span>alle</span>
-            <span><input type='time' id='end_time' name='end_time' required=True></span>
+        <div style="display: flex;" class="form-row">
+            <span class='inline-span'>Dal</span>
+            <span class='inline-span'><input type='date' id='start_date'  name='start_date' required=True></span>
+            <span class='inline-span'>alle</span>
+            <span class='inline-span'><input type='time' id='start_time' name='start_time' required=True></span>
+            <span class='inline-span'>al</span>
+            <span class='inline-span'><input type='date' id='end_date'  name='end_date' required=True></span>
+            <span class='inline-span'>alle</span>
+            <span class='inline-span'><input type='time' id='end_time' name='end_time' required=True></span>
         </div>
-        <div>
+        <div class='form-row'>
             <textarea id='description' name='description' required=True maxlength="900" cols=50 style='resize: none; height: 60px' placeholder="Scrivi qui una breve descrizione dell'evento."></textarea>
         </div>
-        <div style="display: flex;">
-            <span>Da pubblicare il</span>
-            <span><input type='date' id='publication_date'  name='publication_date' required=True></span>
+        <div style="display: flex;" class="form-row">
+            <span class='inline-span'>Da pubblicare il</span>
+            <span class='inline-span'><input type='date' id='publication_date'  name='publication_date' required=True></span>
         </div>
-        <div>
+        <div class='form-row'>
             <span>
             <label for='poster' name='poster'>Locandina (in formato <code>.jpeg</code> o <code>.png</code>)</label></span>
             <span>
