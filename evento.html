@@ -140,8 +140,10 @@
         Telegram.WebApp.MainButton.show();
 
         // dates input validation
-        const today = new Date().toISOString().slice(0, 16);
-        document.getElementById("start_datetime").setAttribute("min", today);
+        const todayDatetime = new Date().toISOString().slice(0, 16);
+        const todayDate = new Date().toISOString().slice(0, 10);
+        document.getElementById("start_datetime").setAttribute("min", todayDatetime);
+        document.getElementById("publication_date").setAttribute("min", todayDate);
 
         const startDatetime = document.getElementById('start_datetime');
         const startDatetimeHelpMsg = document.getElementById('start_datetime_help') 
@@ -164,7 +166,10 @@
             
             if (publicationDate.valueAsDate <= datetimeNow) {
                 publicationDateHelpMsg.textContent = "La data che hai inserito è passata! Inserisci una data futura.";
-            } else {
+            } else if (publicationDate.valueAsDate > startDatetime.valueAsDate) {
+                publicationDateHelpMsg.textContent = "La data di pubblicazione è successiva alla data dell'evento. Scegli una data precedente."
+            }
+             else {
                 publicationDateHelpMsg.textContent = "";
             }
         });
@@ -187,13 +192,13 @@
             availableChars = (description.maxLength - description.textLength);
             if (availableChars < 10) {
                 descriptionHelpMsg.textContent = availableChars + " caratteri rimasti.";
-                startDatetimeHelpMsg.setAttribute('style', 'color: red;');
+                descriptionHelpMsg.setAttribute('style', 'color: red;');
             } else if (availableChars < 50) {
                 descriptionHelpMsg.textContent = availableChars + " caratteri rimasti.";
-                startDatetimeHelpMsg.setAttribute('style', 'color: gold;');
+                descriptionHelpMsg.setAttribute('style', 'color: gold;');
             } else {
                 descriptionHelpMsg.textContent = "";
-                startDatetimeHelpMsg.setAttribute('style', 'color: black;');
+                descriptionHelpMsg.setAttribute('style', 'color: black;');
             }
         });
 
