@@ -87,7 +87,7 @@
         </div>
         <div style="display: flex;" class="form-row">
             <span class='inline-span'><p>Dal</p></span>
-            <span class='inline-span'><input type='datetime-local' class='bottom-border' id='start_datetime'  name='start_datetime' required=True></span>
+            <span class='inline-span'><input type='datetime-local' class='bottom-border' id='start_datetime'  name='start_datetime' required=True min='1899-01-01'></span>
             <span class='inline-span' id='start_datetime_help'></span>
         </div>
         <div style="display: flex;" class="form-row">
@@ -126,8 +126,6 @@
         });
 
         Telegram.WebApp.MainButton.onClick(function () {
-            // const data = JSON.stringify({'ciao': 10});
-            // const data = JSON.stringify($('form').serializeArray());
             var form = new FormData(document.getElementById('event_form'));
             var data = {};
             form.forEach((value,key) => data[key] = value);
@@ -138,11 +136,19 @@
         
         Telegram.WebApp.MainButton.show();
 
+        const today = date.toISOString().slice(0, 10);
+        document.getElementById("start_datetime").setAttribute("min", today);
+
         const startDatetime = document.getElementById('start_datetime');
         const startDatetimeHelpMsg = document.getElementById('start_datetime_help') 
 
         startDatetime.addEventListener("input", (event) => {
-            startDatetimeHelpMsg.textContent = startDatetime.value;
+            const datetimeNow = Date();
+            if (startDatetime.valueAsDate() <= datetimeNow) {
+                startDatetimeHelpMsg.textContent = "La data che hai inserito è passata! Inserisci una data futura.";
+            } else {
+
+            }
         });
 
         Telegram.WebApp.setHeaderColor('secondary_bg_color');
