@@ -136,7 +136,7 @@
         
         Telegram.WebApp.MainButton.show();
 
-        const today = new Date().toISOString().slice(0, 10);
+        const today = new Date().toISOString().slice(0, 16);
         document.getElementById("start_datetime").setAttribute("min", today);
 
         const startDatetime = document.getElementById('start_datetime');
@@ -144,7 +144,7 @@
 
         startDatetime.addEventListener("input", (event) => {
             const datetimeNow = Date();
-            if (startDatetime.valueAsDate() <= datetimeNow) {
+            if (startDatetime.valueAsDate <= datetimeNow) {
                 startDatetimeHelpMsg.textContent = "La data che hai inserito è passata! Inserisci una data futura.";
             } else {
 
