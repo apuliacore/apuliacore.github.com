@@ -102,6 +102,7 @@
         <div style="display: flex;" class="form-row">
             <span class='inline-span'><p>Da pubblicare il</p></span>
             <span class='inline-span'><input type='date' class='bottom-border' id='publication_date'  name='publication_date' required=True></span>
+            <span class="inline-span" id='publication_date_help'></span>
         </div>
         <div class='form-row'>
             <span class='inline-span'><label for='poster' name='poster'><p>Locandina (in formato <code>.jpeg</code> o <code>.png</code>)</p></label></span>
@@ -155,6 +156,19 @@
             }
         });
 
+        const publicationDate = document.getElementById('publication_date');
+        const publicationDateHelpMsg = document.getElementById('publication_date_help') 
+
+        publicationDate.addEventListener("input", (event) => {
+            const datetimeNow = new Date();
+            
+            if (publicationDate.valueAsDate <= datetimeNow) {
+                publicationDateHelpMsg.textContent = "La data che hai inserito è passata! Inserisci una data futura.";
+            } else {
+                publicationDateHelpMsg.textContent = "";
+            }
+        });
+
         const endDatetime = document.getElementById('end_datetime');
         const endDatetimeHelpMsg = document.getElementById('end_datetime_help');
 
@@ -167,6 +181,21 @@
         });
 
         const description = document.getElementById('description');
+        const descriptionHelpMsg = document.getElementById('description_help');
+
+        description.addEventListener("input", (event) => {
+            availableChars = (description.maxLength - description.textLength);
+            if (availableChars < 10) {
+                descriptionHelpMsg.textContent = availableChars + " caratteri rimasti.";
+                startDatetimeHelpMsg.setAttribute('style', 'color: red;');
+            } else if (availableChars < 50) {
+                descriptionHelpMsg.textContent = availableChars + " caratteri rimasti.";
+                startDatetimeHelpMsg.setAttribute('style', 'color: gold;');
+            } else {
+                descriptionHelpMsg.textContent = "";
+                startDatetimeHelpMsg.setAttribute('style', 'color: black;');
+            }
+        });
 
         Telegram.WebApp.setHeaderColor('secondary_bg_color');
 
