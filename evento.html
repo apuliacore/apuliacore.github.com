@@ -87,12 +87,13 @@
         </div>
         <div style="display: flex;" class="form-row">
             <span class='inline-span'><p>Dal</p></span>
-            <span class='inline-span'><input type='datetime-local' class='bottom-border' id='start_datetime'  name='start_datetime' required=True min='1899-01-01'></span>
+            <span class='inline-span'><input type='datetime-local' class='bottom-border' id='start_datetime'  name='start_datetime' required=True min='1899-01-01' max='2050-01-01T00:00'></span>
             <span class='inline-span' id='start_datetime_help'></span>
         </div>
         <div style="display: flex;" class="form-row">
             <span class='inline-span'><p>al</p></span>
-            <span class='inline-span'><input type='datetime-local' class='bottom-border' id='end_datetime'  name='end_datetime' required=True></span>
+            <span class='inline-span'><input type='datetime-local' class='bottom-border' id='end_datetime'  name='end_datetime' required=True max='2050-01-01T00:00'></span>
+            <span class='inline-span' id='start_datetime_help'></span>
         </div>
         <div class='form-row'>
             <textarea id='description' name='description' required=True maxlength="900" cols=50 style='resize: none; height: 100px' placeholder="Scrivi qui una breve descrizione dell'evento."></textarea>
@@ -136,6 +137,7 @@
         
         Telegram.WebApp.MainButton.show();
 
+        // dates input validation
         const today = new Date().toISOString().slice(0, 16);
         document.getElementById("start_datetime").setAttribute("min", today);
 
@@ -144,10 +146,22 @@
 
         startDatetime.addEventListener("input", (event) => {
             const datetimeNow = new Date();
+            
             if (startDatetime.valueAsDate <= datetimeNow) {
                 startDatetimeHelpMsg.textContent = "La data che hai inserito è passata! Inserisci una data futura.";
             } else {
+                startDatetimeHelpMsg.textContent = "";
+            }
+        });
 
+        const endDatetime = document.getElementById('end_datetime');
+        const endDatetimeHelpMsg = document.getElementById('end_datetime_help');
+
+        endDatetime.addEventListener("input", (event) => {
+            if (endDatetime.valueAsDate <= startDatetime.valueAsDate) {
+                endDatetimeHelpMsg.textContent = "La data di fine evento è precedente alla data di inizio. Inserisci una data successiva."
+            } else {
+                endDatetimeHelpMsg.textContent = "";
             }
         });
 
