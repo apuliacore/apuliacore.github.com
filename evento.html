@@ -93,10 +93,11 @@
         <div style="display: flex;" class="form-row">
             <span class='inline-span'><p>al</p></span>
             <span class='inline-span'><input type='datetime-local' class='bottom-border' id='end_datetime'  name='end_datetime' required=True max='2050-01-01T00:00'></span>
-            <span class='inline-span' id='start_datetime_help'></span>
+            <span class='inline-span' id='end_datetime_help'></span>
         </div>
         <div class='form-row'>
             <textarea id='description' name='description' required=True maxlength="900" cols=50 style='resize: none; height: 100px' placeholder="Scrivi qui una breve descrizione dell'evento."></textarea>
+            <span class="inline-span" id='description_help'></span>
         </div>
         <div style="display: flex;" class="form-row">
             <span class='inline-span'><p>Da pubblicare il</p></span>
@@ -164,6 +165,8 @@
                 endDatetimeHelpMsg.textContent = "";
             }
         });
+
+        const description = document.getElementById('description');
 
         Telegram.WebApp.setHeaderColor('secondary_bg_color');
 
