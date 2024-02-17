@@ -136,7 +136,7 @@
         
         Telegram.WebApp.MainButton.show();
 
-        const today = date.toISOString().slice(0, 10);
+        const today = new Date().toISOString().slice(0, 10);
         document.getElementById("start_datetime").setAttribute("min", today);
 
         const startDatetime = document.getElementById('start_datetime');
