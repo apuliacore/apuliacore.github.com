@@ -145,6 +145,7 @@
         const todayDatetime = new Date().toISOString().slice(0, 16);
         const todayDate = new Date().toISOString().slice(0, 10);
         document.getElementById("start_datetime").setAttribute("min", todayDatetime);
+        document.getElementById("end_datetime").setAttribute("min", todayDatetime);
         document.getElementById("publication_date").setAttribute("min", todayDate);
 
         const startDatetime = document.getElementById('start_datetime');
