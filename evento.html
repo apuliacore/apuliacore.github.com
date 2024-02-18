@@ -148,13 +148,14 @@
         document.getElementById("end_datetime").setAttribute("min", todayDatetime);
         document.getElementById("publication_date").setAttribute("min", todayDate);
 
-        const startDatetime = document.getElementById('start_datetime');
+        const startDatetimeInput = document.getElementById('start_datetime');
         const startDatetimeHelpMsg = document.getElementById('start_datetime_help') 
 
-        startDatetime.addEventListener("input", (event) => {
+        startDatetimeInput.addEventListener("input", (event) => {
             const datetimeNow = new Date();
+            const startDatetime = new Date(startDatetimeInput.value);
             
-            if (startDatetime.valueAsDate <= datetimeNow) {
+            if (startDatetime <= datetimeNow) {
                 startDatetimeHelpMsg.textContent = "La data che hai inserito è passata! Inserisci una data futura.";
             } else {
                 startDatetimeHelpMsg.textContent = "";
@@ -182,8 +183,7 @@
                 publicationDateHelpMsg.textContent = "La data che hai inserito è passata! Inserisci una data futura.";
             } else if (publicationDate.valueAsDate > startDatetime.valueAsDate) {
                 publicationDateHelpMsg.textContent = "La data di pubblicazione è successiva alla data dell'evento. Scegli una data precedente."
-            }
-             else {
+            } else {
                 publicationDateHelpMsg.textContent = "";
             }
         });
