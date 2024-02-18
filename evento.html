@@ -175,9 +175,9 @@
         const publicationDateHelpMsg = document.getElementById('publication_date_help') 
 
         publicationDate.addEventListener("input", (event) => {
-            const datetimeNow = new Date();
+            const dateNow = new Date(todayDate);
             
-            if (publicationDate.valueAsDate < datetimeNow) {
+            if (publicationDate.valueAsDate < dateNow) {
                 publicationDateHelpMsg.textContent = "La data che hai inserito è passata! Inserisci una data futura.";
             } else if (publicationDate.valueAsDate > startDatetime.valueAsDate) {
                 publicationDateHelpMsg.textContent = "La data di pubblicazione è successiva alla data dell'evento. Scegli una data precedente."
