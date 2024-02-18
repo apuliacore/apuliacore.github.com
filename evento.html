@@ -188,7 +188,7 @@
             
             if (publicationDate < dateNow) {
                 publicationDateHelpMsg.textContent = "La data che hai inserito è passata! Inserisci una data futura.";
-            } else if (publicationDate > startDatetime.valueAsDate) {
+            } else if (publicationDate > startDatetime) {
                 publicationDateHelpMsg.textContent = "La data di pubblicazione è successiva alla data dell'evento. Scegli una data precedente."
             } else {
                 publicationDateHelpMsg.textContent = "";
