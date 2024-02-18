@@ -158,22 +158,6 @@
             }
         });
 
-        const publicationDate = document.getElementById('publication_date');
-        const publicationDateHelpMsg = document.getElementById('publication_date_help') 
-
-        publicationDate.addEventListener("input", (event) => {
-            const datetimeNow = new Date();
-            
-            if (publicationDate.valueAsDate <= datetimeNow) {
-                publicationDateHelpMsg.textContent = "La data che hai inserito è passata! Inserisci una data futura.";
-            } else if (publicationDate.valueAsDate > startDatetime.valueAsDate) {
-                publicationDateHelpMsg.textContent = "La data di pubblicazione è successiva alla data dell'evento. Scegli una data precedente."
-            }
-             else {
-                publicationDateHelpMsg.textContent = "";
-            }
-        });
-
         const endDatetime = document.getElementById('end_datetime');
         const endDatetimeHelpMsg = document.getElementById('end_datetime_help');
 
@@ -182,6 +166,22 @@
                 endDatetimeHelpMsg.textContent = "La data di fine evento è precedente alla data di inizio. Inserisci una data successiva."
             } else {
                 endDatetimeHelpMsg.textContent = "";
+            }
+        });
+
+        const publicationDate = document.getElementById('publication_date');
+        const publicationDateHelpMsg = document.getElementById('publication_date_help') 
+
+        publicationDate.addEventListener("input", (event) => {
+            const datetimeNow = new Date();
+            
+            if (publicationDate.valueAsDate < datetimeNow) {
+                publicationDateHelpMsg.textContent = "La data che hai inserito è passata! Inserisci una data futura.";
+            } else if (publicationDate.valueAsDate > startDatetime.valueAsDate) {
+                publicationDateHelpMsg.textContent = "La data di pubblicazione è successiva alla data dell'evento. Scegli una data precedente."
+            }
+             else {
+                publicationDateHelpMsg.textContent = "";
             }
         });
 
