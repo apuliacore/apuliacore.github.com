@@ -159,7 +159,8 @@
                 startDatetimeHelpMsg.textContent = "La data che hai inserito è passata! Inserisci una data futura.";
             } else {
                 startDatetimeHelpMsg.textContent = "";
-                document.getElementById("end_datetime").setAttribute("min", startDatetime);
+                document.getElementById("end_datetime").setAttribute("min", startDatetime.toISOString().slice(0, 16));
+                document.getElementById("publication_date").setAttribute("max", startDatetime.toISOString().slice(0, 10))
             }
         });
 
@@ -167,6 +168,7 @@
         const endDatetimeHelpMsg = document.getElementById('end_datetime_help');
 
         endDatetimeInput.addEventListener("input", (event) => {
+            const startDatetime = new Date(startDatetimeInput.value);
             const endDatetime = new Date(endDatetimeInput.value);
 
             if (endDatetime <= startDatetime) {
@@ -182,6 +184,7 @@
         publicationDateInput.addEventListener("input", (event) => {
             const dateNow = new Date(todayDate);
             const publicationDate = new Date(publicationDateInput.value);
+            const startDatetime = new Date(startDatetimeInput.value);
             
             if (publicationDate < dateNow) {
                 publicationDateHelpMsg.textContent = "La data che hai inserito è passata! Inserisci una data futura.";
