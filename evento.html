@@ -162,26 +162,28 @@
             }
         });
 
-        const endDatetime = document.getElementById('end_datetime');
+        const endDatetimeInput = document.getElementById('end_datetime');
         const endDatetimeHelpMsg = document.getElementById('end_datetime_help');
 
-        endDatetime.addEventListener("input", (event) => {
-            if (endDatetime.valueAsDate <= startDatetime.valueAsDate) {
+        endDatetimeInput.addEventListener("input", (event) => {
+            const endDatetime = new Date(endDatetimeInput.value);
+            if (endDatetime <= startDatetime) {
                 endDatetimeHelpMsg.textContent = "La data di fine evento è precedente alla data di inizio. Inserisci una data successiva."
             } else {
                 endDatetimeHelpMsg.textContent = "";
             }
         });
 
-        const publicationDate = document.getElementById('publication_date');
+        const publicationDateInput = document.getElementById('publication_date');
         const publicationDateHelpMsg = document.getElementById('publication_date_help') 
 
-        publicationDate.addEventListener("input", (event) => {
+        publicationDateInput.addEventListener("input", (event) => {
             const dateNow = new Date(todayDate);
+            const publicationDate = new Date(publicationDateInput.value);
             
-            if (publicationDate.valueAsDate < dateNow) {
+            if (publicationDate < dateNow) {
                 publicationDateHelpMsg.textContent = "La data che hai inserito è passata! Inserisci una data futura.";
-            } else if (publicationDate.valueAsDate > startDatetime.valueAsDate) {
+            } else if (publicationDate > startDatetime.valueAsDate) {
                 publicationDateHelpMsg.textContent = "La data di pubblicazione è successiva alla data dell'evento. Scegli una data precedente."
             } else {
                 publicationDateHelpMsg.textContent = "";
