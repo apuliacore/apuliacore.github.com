@@ -159,6 +159,7 @@
                 startDatetimeHelpMsg.textContent = "La data che hai inserito è passata! Inserisci una data futura.";
             } else {
                 startDatetimeHelpMsg.textContent = "";
+                document.getElementById("end_datetime").setAttribute("min", startDatetime);
             }
         });
 
@@ -167,6 +168,7 @@
 
         endDatetimeInput.addEventListener("input", (event) => {
             const endDatetime = new Date(endDatetimeInput.value);
+
             if (endDatetime <= startDatetime) {
                 endDatetimeHelpMsg.textContent = "La data di fine evento è precedente alla data di inizio. Inserisci una data successiva."
             } else {
