@@ -212,6 +212,8 @@
             if (startDatetime <= datetimeNow) {
                 startDatetimeHelpMsg.textContent = "La data che hai inserito è passata! Inserisci una data futura.";
                 startDatetimeInput.style.borderColor = "transparent transparent lightcoral transparent";
+            } else if (startDatetimeInput.value === "") {
+                startDatetimeInput.style.borderColor = "transparent transparent lightcoral transparent";
             } else {
                 startDatetimeHelpMsg.textContent = "";
                 document.getElementById("end_datetime").setAttribute("min", startDatetime.toISOString().slice(0, 16));
@@ -229,6 +231,8 @@
 
             if (endDatetime <= startDatetime) {
                 endDatetimeHelpMsg.textContent = "La data di fine evento è precedente alla data di inizio. Inserisci una data successiva.";
+                endDatetimeInput.style.borderColor = "transparent transparent lightcoral transparent";
+            } else if (endDatetimeInput.value === "") {
                 endDatetimeInput.style.borderColor = "transparent transparent lightcoral transparent";
             } else {
                 endDatetimeHelpMsg.textContent = "";
@@ -248,6 +252,8 @@
                 publicationDateHelpMsg.textContent = "La data che hai inserito è passata! Inserisci una data futura.";
             } else if (publicationDate > startDatetime) {
                 publicationDateHelpMsg.textContent = "La data di pubblicazione è successiva alla data dell'evento. Scegli una data precedente o la data dell'evento."
+                publicationDateInput.style.borderColor = "transparent transparent lightcoral transparent";
+            } else if (publicationDateInput.value === "") {
                 publicationDateInput.style.borderColor = "transparent transparent lightcoral transparent";
             } else {
                 publicationDateHelpMsg.textContent = "";
