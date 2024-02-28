@@ -278,6 +278,12 @@
         const categoryEmoji = document.getElementById('category-emoji');
         categorySelect.addEventListener("change", (event) => {
             categoryEmoji.textContent = categoryToEmoji[categorySelect.value];
+            if categorySelect.value === "" {
+                categorySelect.setAttribute('style', 'color: red;');
+            }
+            else {
+                categorySelect.setAttribute('style', 'color: black;');
+            }
         });
 
         Telegram.WebApp.setHeaderColor('secondary_bg_color');
