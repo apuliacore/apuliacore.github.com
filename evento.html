@@ -80,6 +80,7 @@
     <h1>Proponi un evento</h1>
     <form id='event_form' name='event_form'>
         <div class='form-row'>
+            <span class="inline-span" id="category-emoji"></span>
             <input type='text' class='bottom-border' id='name' name='name' required=True maxlength=1000 placeholder="Nome dell'evento">
         </div>
         <div class='form-row'>
@@ -87,6 +88,7 @@
         </div>
         <div class='form-row'>
             <select class='bottom-border' id='category' name='category' required=True>
+                <option value="">Scegli una categoria...</option>
                 <option value="arte">Arte</option>
                 <option value="artigianato e making">Artigianato e making</option>
                 <option value="attivismo">Attivismo</option>
@@ -228,6 +230,28 @@
                 descriptionHelpMsg.textContent = "";
                 descriptionHelpMsg.setAttribute('style', 'color: black;');
             }
+        });
+
+        const categorySelect = document.getElementById('category');
+        const categoryToEmoji = {
+            "arte": "🎨",
+            "artigianato e making": "🧶",
+            "attivismo": "✊",
+            "cinema": "🎥",
+            "danza": "🩰",
+            "educazione e formazione": "🖍️",
+            "fotografia": "📷",
+            "fumetti e giochi": "👾",
+            "libri e lettura": "📖",
+            "musica": "🎹",
+            "scienza e tecnologia": "🔭",
+            "scambi europei": "🇪🇺",
+            "teatro e stand-up": "🎭",
+            "altro": "❔",
+        };
+        const categoryEmoji = document.getElementById('category-emoji');
+        categorySelect.addEventListener("change", (event) => {
+            categoryEmoji.textContent = categoryToEmoji[this.value];
         });
 
         Telegram.WebApp.setHeaderColor('secondary_bg_color');
