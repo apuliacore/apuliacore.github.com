@@ -158,7 +158,7 @@
                 if (!allAreFilledAndValid) {
                   return;
                 }
-                if (!i.value) || (!i.checkValidity()) {
+                if ((!i.value) || (!i.checkValidity())) {
                     allAreFilledAndValid = false;
                     return;
                 }
