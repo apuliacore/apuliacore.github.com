@@ -153,17 +153,17 @@
         Telegram.WebApp.MainButton.onClick(function () {
             var form = new FormData(document.getElementById('event_form'));
 
-            let allAreFilled = true;
+            let allAreFilledAndValid = true;
             document.getElementById('event_form').querySelectorAll("[required]").forEach(function(i) {
-                if (!allAreFilled) {
-                  return;  
+                if (!allAreFilledAndValid) {
+                  return;
                 }
-                if (!i.value) {
-                    allAreFilled = false;
+                if (!i.value) || (!i.checkValidity()) {
+                    allAreFilledAndValid = false;
                     return;
                 }
             });
-            if (!allAreFilled) {
+            if (!allAreFilledAndValid) {
                 alert('Fill all the fields');
                 return;
             };
