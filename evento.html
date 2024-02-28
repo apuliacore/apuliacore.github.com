@@ -164,7 +164,7 @@
                 }
             });
             if (!allAreFilledAndValid) {
-                alert('Per favore, compila tutti i campi.');
+                alert('Per favore, compila correttamente tutti i campi.');
                 return;
             };
 
@@ -250,6 +250,7 @@
             
             if (publicationDate < dateNow) {
                 publicationDateHelpMsg.textContent = "La data che hai inserito è passata! Inserisci una data futura.";
+                publicationDateInput.style.borderColor = "transparent transparent lightcoral transparent";
             } else if (publicationDate > startDatetime) {
                 publicationDateHelpMsg.textContent = "La data di pubblicazione è successiva alla data dell'evento. Scegli una data precedente o la data dell'evento."
                 publicationDateInput.style.borderColor = "transparent transparent lightcoral transparent";
