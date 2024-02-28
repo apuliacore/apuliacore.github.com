@@ -251,7 +251,7 @@
         };
         const categoryEmoji = document.getElementById('category-emoji');
         categorySelect.addEventListener("change", (event) => {
-            categoryEmoji.textContent = categoryToEmoji[this.value];
+            categoryEmoji.textContent = categoryToEmoji[categorySelect.value];
         });
 
         Telegram.WebApp.setHeaderColor('secondary_bg_color');
