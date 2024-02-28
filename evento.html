@@ -85,6 +85,24 @@
         <div class='form-row'>
             <input type='text' class='bottom-border' id='venue' name='venue' required=True maxlength=1000 placeholder="Luogo dell'evento">
         </div>
+        <div class='form-row'>
+            <select class='bottom-border' id='category' name='category' required=True>
+                <option value="arte">Arte</option>
+                <option value="artigianato e making">Artigianato e making</option>
+                <option value="attivismo">Attivismo</option>
+                <option value="cinema">Cinema</option>
+                <option value="danza">Danza</option>
+                <option value="educazione e formazione">Educazione e formazione</option>
+                <option value="fotografia">Fotografia</option>
+                <option value="fumetti e giochi">Fumetti e giochi</option>
+                <option value="libri e lettura">Libri e lettura</option>
+                <option value="musica">Musica</option>
+                <option value="scienza e tecnologia">Scienza e tecnologia</option>
+                <option value="scambi europei">Scambi europei</option>
+                <option value="teatro e stand-up">Teatro e stand-up</option>
+                <option value="altro">Altro</option>
+            </select>
+        </div>
         <div style="display: flex;" class="form-row">
             <span class='inline-span'><p>Dal</p></span>
             <span class='inline-span'><input type='datetime-local' class='bottom-border' id='start_datetime'  name='start_datetime' required=True min='1899-01-01' max='2050-01-01T00:00'></span>
