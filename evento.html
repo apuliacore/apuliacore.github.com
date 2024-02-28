@@ -154,13 +154,13 @@
             var form = new FormData(document.getElementById('event_form'));
 
             let allAreFilled = true;
-            form.querySelectorAll("[required]").forEach(function(i) {
+            document.getElementById('event_form').querySelectorAll("[required]").forEach(function(i) {
                 if (!allAreFilled) {
                   return;  
                 }
                 // if (i.type === "radio") {
                 //     let radioValueCheck = false;
-                //     form.querySelectorAll(`[name=${i.name}]`).forEach(function(r) {
+                //     document.getElementById('event_form').querySelectorAll(`[name=${i.name}]`).forEach(function(r) {
                 //         if (r.checked) { 
                 //             radioValueCheck = true; 
                 //         }
