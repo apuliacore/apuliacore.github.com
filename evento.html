@@ -172,10 +172,11 @@
                     allAreFilled = false;
                     return;
                 }
-            })
+            });
             if (!allAreFilled) {
                 alert('Fill all the fields');
-            }
+                return;
+            };
 
             var data = {};
             form.forEach((value,key) => data[key] = value);
