@@ -242,25 +242,33 @@
         });
 
         const description = document.getElementById('description');
+        description.style.borderColor = 'red';
         const descriptionHelpMsg = document.getElementById('description_help');
 
         description.addEventListener("input", (event) => {
             availableChars = (description.maxLength - description.textLength);
             if (availableChars < 10) {
                 descriptionHelpMsg.textContent = availableChars + " caratteri rimasti.";
-                descriptionHelpMsg.setAttribute('style', 'color: red;');
+                descriptionHelpMsg.style.color = 'red';
             } else if (availableChars < 50) {
                 descriptionHelpMsg.textContent = availableChars + " caratteri rimasti.";
-                descriptionHelpMsg.setAttribute('style', 'color: gold;');
+                descriptionHelpMsg.style.color = 'gold';
             } else {
                 descriptionHelpMsg.textContent = "";
-                descriptionHelpMsg.setAttribute('style', 'color: black;');
+                descriptionHelpMsg.style.color = 'black';
+            }
+
+            if (description.textLength == 0) {
+                description.style.borderColor = 'red';
+            }
+            else {
+                description.style.borderColor = 'black';
             }
         });
 
         const categorySelect = document.getElementById('category');
         if (categorySelect.value === "") {
-            categorySelect.setAttribute('style', 'color: red;');
+            categorySelect.style.color = 'red';
         }
         const categoryToEmoji = {
             "arte": "🎨",
@@ -282,10 +290,10 @@
         categorySelect.addEventListener("change", (event) => {
             categoryEmoji.textContent = categoryToEmoji[categorySelect.value];
             if (categorySelect.value === "") {
-                categorySelect.setAttribute('style', 'color: red;');
+                categorySelect.style.color = 'red';
             }
             else {
-                categorySelect.setAttribute('style', 'color: black;');
+                categorySelect.style.color = 'black';
             }
         });
 
