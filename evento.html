@@ -179,7 +179,7 @@
 
         const nameInput = document.getElementById('name');
         nameInput.addEventListener("input", (event) => {
-            if (nameInput.value.textLength == 0) {
+            if (nameInput.value.length == 0) {
                 nameInput.style.borderColor = "transparent transparent lightcoral transparent";
             } else {
                 nameInput.style.borderColor = "transparent transparent black transparent";
@@ -188,7 +188,7 @@
 
         const venueInput = document.getElementById('venue');
         venueInput.addEventListener("input", (event) => {
-            if (venueInput.value.textLength == 0) {
+            if (venueInput.value.length == 0) {
                 venueInput.style.borderColor = "transparent transparent lightcoral transparent";
             } else {
                 venueInput.style.borderColor = "transparent transparent black transparent";
