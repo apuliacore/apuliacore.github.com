@@ -259,6 +259,9 @@
         });
 
         const categorySelect = document.getElementById('category');
+        if (categorySelect.value === "") {
+            categorySelect.setAttribute('style', 'color: red;');
+        }
         const categoryToEmoji = {
             "arte": "🎨",
             "artigianato e making": "🧶",
@@ -278,7 +281,7 @@
         const categoryEmoji = document.getElementById('category-emoji');
         categorySelect.addEventListener("change", (event) => {
             categoryEmoji.textContent = categoryToEmoji[categorySelect.value];
-            if categorySelect.value === "" {
+            if (categorySelect.value === "") {
                 categorySelect.setAttribute('style', 'color: red;');
             }
             else {
