@@ -68,9 +68,9 @@
         .bottom-border {
             border-color: transparent transparent black transparent;
         }
-        input:invalid:required {
+        /*input:invalid:required {
             border-color: transparent transparent lightcoral transparent;
-        }
+        }*/
     </style>
 </head>
 
@@ -158,16 +158,6 @@
                 if (!allAreFilled) {
                   return;  
                 }
-                // if (i.type === "radio") {
-                //     let radioValueCheck = false;
-                //     document.getElementById('event_form').querySelectorAll(`[name=${i.name}]`).forEach(function(r) {
-                //         if (r.checked) { 
-                //             radioValueCheck = true; 
-                //         }
-                //     })
-                //     allAreFilled = radioValueCheck;
-                //     return;
-                // }
                 if (!i.value) {
                     allAreFilled = false;
                     return;
@@ -187,6 +177,24 @@
         
         Telegram.WebApp.MainButton.show();
 
+        const nameInput = document.getElementById('name');
+        nameInput.addEventListener("input", (event) => {
+            if (nameInput.value.textLength == 0) {
+                nameInput.style.borderColor = "transparent transparent lightcoral transparent";
+            } else {
+                nameInput.style.borderColor = "transparent transparent black transparent";
+            }
+        });
+
+        const venueInput = document.getElementById('venue');
+        venueInput.addEventListener("input", (event) => {
+            if (venueInput.value.textLength == 0) {
+                venueInput.style.borderColor = "transparent transparent lightcoral transparent";
+            } else {
+                venueInput.style.borderColor = "transparent transparent black transparent";
+            }
+        });
+
         // dates input validation
         const todayDatetime = new Date().toISOString().slice(0, 16);
         const todayDate = new Date().toISOString().slice(0, 10);
@@ -203,10 +211,12 @@
             
             if (startDatetime <= datetimeNow) {
                 startDatetimeHelpMsg.textContent = "La data che hai inserito è passata! Inserisci una data futura.";
+                startDatetimeInput.style.borderColor = "transparent transparent lightcoral transparent";
             } else {
                 startDatetimeHelpMsg.textContent = "";
                 document.getElementById("end_datetime").setAttribute("min", startDatetime.toISOString().slice(0, 16));
-                document.getElementById("publication_date").setAttribute("max", startDatetime.toISOString().slice(0, 10))
+                document.getElementById("publication_date").setAttribute("max", startDatetime.toISOString().slice(0, 10));
+                startDatetimeInput.style.borderColor = "transparent transparent black transparent";
             }
         });
 
@@ -218,9 +228,11 @@
             const endDatetime = new Date(endDatetimeInput.value);
 
             if (endDatetime <= startDatetime) {
-                endDatetimeHelpMsg.textContent = "La data di fine evento è precedente alla data di inizio. Inserisci una data successiva."
+                endDatetimeHelpMsg.textContent = "La data di fine evento è precedente alla data di inizio. Inserisci una data successiva.";
+                endDatetimeInput.style.borderColor = "transparent transparent lightcoral transparent";
             } else {
                 endDatetimeHelpMsg.textContent = "";
+                endDatetimeInput.style.borderColor = "transparent transparent black transparent";
             }
         });
 
@@ -236,20 +248,21 @@
                 publicationDateHelpMsg.textContent = "La data che hai inserito è passata! Inserisci una data futura.";
             } else if (publicationDate > startDatetime) {
                 publicationDateHelpMsg.textContent = "La data di pubblicazione è successiva alla data dell'evento. Scegli una data precedente o la data dell'evento."
+                publicationDateInput.style.borderColor = "transparent transparent lightcoral transparent";
             } else {
                 publicationDateHelpMsg.textContent = "";
+                publicationDateInput.style.borderColor = "transparent transparent black transparent";
             }
         });
 
         const description = document.getElementById('description');
-        description.style.borderColor = 'red';
         const descriptionHelpMsg = document.getElementById('description_help');
 
         description.addEventListener("input", (event) => {
             availableChars = (description.maxLength - description.textLength);
             if (availableChars < 10) {
                 descriptionHelpMsg.textContent = availableChars + " caratteri rimasti.";
-                descriptionHelpMsg.style.color = 'red';
+                descriptionHelpMsg.style.color = 'lightcoral';
             } else if (availableChars < 50) {
                 descriptionHelpMsg.textContent = availableChars + " caratteri rimasti.";
                 descriptionHelpMsg.style.color = 'gold';
@@ -259,7 +272,7 @@
             }
 
             if (description.textLength == 0) {
-                description.style.borderColor = 'red';
+                description.style.borderColor = 'lightcoral';
             }
             else {
                 description.style.borderColor = 'black';
@@ -267,9 +280,6 @@
         });
 
         const categorySelect = document.getElementById('category');
-        if (categorySelect.value === "") {
-            categorySelect.style.color = 'red';
-        }
         const categoryToEmoji = {
             "arte": "🎨",
             "artigianato e making": "🧶",
@@ -290,7 +300,7 @@
         categorySelect.addEventListener("change", (event) => {
             categoryEmoji.textContent = categoryToEmoji[categorySelect.value];
             if (categorySelect.value === "") {
-                categorySelect.style.color = 'red';
+                categorySelect.style.color = 'lightcoral';
             }
             else {
                 categorySelect.style.color = 'black';
