@@ -80,14 +80,14 @@
     <h1>Proponi un evento</h1>
     <form id='event_form' name='event_form'>
         <div class='form-row'>
-            <span class="inline-span" id="category-emoji"></span>
-            <input type='text' class='bottom-border' id='name' name='name' required maxlength=1000 placeholder="Nome dell'evento">
+            <span class="inline-span" id="categoryEmoji"></span>
+            <input type='text' class='bottom-border' id='nameInput' name='name' required maxlength=1000 placeholder="Nome dell'evento">
         </div>
         <div class='form-row'>
-            <input type='text' class='bottom-border' id='venue' name='venue' required maxlength=1000 placeholder="Luogo dell'evento">
+            <input type='text' class='bottom-border' id='venueInput' name='venue' required maxlength=1000 placeholder="Luogo dell'evento">
         </div>
         <div class='form-row'>
-            <select class='bottom-border' id='category' name='category' required>
+            <select class='bottom-border' id='categorySelect' name='category' required>
                 <option value="">Scegli una categoria...</option>
                 <option value="arte">Arte</option>
                 <option value="artigianato e making">Artigianato e making</option>
@@ -107,24 +107,24 @@
         </div>
         <div style="display: flex;" class="form-row">
             <span class='inline-span'><p>Dal</p></span>
-            <span class='inline-span'><input type='datetime-local' class='bottom-border' id='start_datetime'  name='start_datetime' required min='1899-01-01' max='2050-01-01T00:00'></span>
-            <span class='inline-span' id='start_datetime_help'></span>
+            <span class='inline-span'><input type='datetime-local' class='bottom-border' id='startDatetimeInput'  name='start_datetime' required min='1899-01-01' max='2050-01-01T00:00'></span>
+            <span class='inline-span' id='startDatetimeHelpMsg'></span>
         </div>
         <div style="display: flex;" class="form-row">
             <span class='inline-span'><p>al</p></span>
-            <span class='inline-span'><input type='datetime-local' class='bottom-border' id='end_datetime'  name='end_datetime' required max='2050-01-01T00:00'></span>
-            <span class='inline-span' id='end_datetime_help'></span>
+            <span class='inline-span'><input type='datetime-local' class='bottom-border' id='endDatetimeInput'  name='end_datetime' required max='2050-01-01T00:00'></span>
+            <span class='inline-span' id='endDatetimeHelpMsg'></span>
         </div>
         <div class='form-row'>
-            <textarea id='description' name='description' required maxlength="900" cols=40 style='resize: none; height: 100px' placeholder="Scrivi qui una breve descrizione dell'evento."></textarea>
+            <textarea id='descriptionTextarea' name='description' required maxlength="900" cols=40 style='resize: none; height: 100px' placeholder="Scrivi qui una breve descrizione dell'evento."></textarea>
         </div>
         <div class="form-row">
-            <span class="inline-span" id='description_help'></span>
+            <span class="inline-span" id='descriptionHelpMsg'></span>
         </div>
         <div style="display: flex;" class="form-row">
             <span class='inline-span'><p>Da pubblicare il</p></span>
-            <span class='inline-span'><input type='date' class='bottom-border' id='publication_date'  name='publication_date' required></span>
-            <span class="inline-span" id='publication_date_help'></span>
+            <span class='inline-span'><input type='date' class='bottom-border' id='publicationDateInput'  name='publication_date' required></span>
+            <span class="inline-span" id='publicationDateHelpMsg'></span>
         </div>
         <p>Locandina (in formato <code>.jpeg</code> o <code>.png</code>)</p>
         <div class='form-row' style="display: flex;">
@@ -178,7 +178,6 @@
         
         Telegram.WebApp.MainButton.show();
 
-        const nameInput = document.getElementById('name');
         nameInput.addEventListener("input", (event) => {
             if (nameInput.value.length == 0) {
                 nameInput.style.borderColor = "transparent transparent lightcoral transparent";
@@ -187,7 +186,6 @@
             }
         });
 
-        const venueInput = document.getElementById('venue');
         venueInput.addEventListener("input", (event) => {
             if (venueInput.value.length == 0) {
                 venueInput.style.borderColor = "transparent transparent lightcoral transparent";
@@ -199,12 +197,9 @@
         // dates input validation
         const todayDatetime = new Date().toISOString().slice(0, 16);
         const todayDate = new Date().toISOString().slice(0, 10);
-        document.getElementById("start_datetime").setAttribute("min", todayDatetime);
-        document.getElementById("end_datetime").setAttribute("min", todayDatetime);
-        document.getElementById("publication_date").setAttribute("min", todayDate);
-
-        const startDatetimeInput = document.getElementById('start_datetime');
-        const startDatetimeHelpMsg = document.getElementById('start_datetime_help') 
+        startDatetimeInput.setAttribute("min", todayDatetime);
+        endDatetimeInput.setAttribute("min", todayDatetime);
+        publicationDateInput.setAttribute("min", todayDate);
 
         startDatetimeInput.addEventListener("input", (event) => {
             const datetimeNow = new Date();
@@ -223,9 +218,6 @@
             }
         });
 
-        const endDatetimeInput = document.getElementById('end_datetime');
-        const endDatetimeHelpMsg = document.getElementById('end_datetime_help');
-
         endDatetimeInput.addEventListener("input", (event) => {
             const startDatetime = new Date(startDatetimeInput.value);
             const endDatetime = new Date(endDatetimeInput.value);
@@ -240,9 +232,6 @@
                 endDatetimeInput.style.borderColor = "transparent transparent black transparent";
             }
         });
-
-        const publicationDateInput = document.getElementById('publication_date');
-        const publicationDateHelpMsg = document.getElementById('publication_date_help') 
 
         publicationDateInput.addEventListener("input", (event) => {
             const dateNow = new Date(todayDate);
@@ -263,11 +252,8 @@
             }
         });
 
-        const description = document.getElementById('description');
-        const descriptionHelpMsg = document.getElementById('description_help');
-
-        description.addEventListener("input", (event) => {
-            availableChars = (description.maxLength - description.textLength);
+        descriptionTextarea.addEventListener("input", (event) => {
+            availableChars = (descriptionTextarea.maxLength - descriptionTextarea.textLength);
             if (availableChars < 10) {
                 descriptionHelpMsg.textContent = availableChars + " caratteri rimasti.";
                 descriptionHelpMsg.style.color = 'lightcoral';
@@ -279,15 +265,14 @@
                 descriptionHelpMsg.style.color = 'black';
             }
 
-            if (description.textLength == 0) {
-                description.style.borderColor = 'lightcoral';
+            if (descriptionTextarea.textLength == 0) {
+                descriptionTextarea.style.borderColor = 'lightcoral';
             }
             else {
-                description.style.borderColor = 'black';
+                descriptionTextarea.style.borderColor = 'black';
             }
         });
 
-        const categorySelect = document.getElementById('category');
         const categoryToEmoji = {
             "arte": "🎨",
             "artigianato e making": "🧶",
@@ -304,7 +289,7 @@
             "teatro e stand-up": "🎭",
             "altro": "❔",
         };
-        const categoryEmoji = document.getElementById('category-emoji');
+        
         categorySelect.addEventListener("change", (event) => {
             categoryEmoji.textContent = categoryToEmoji[categorySelect.value];
             if (categorySelect.value === "") {
@@ -316,12 +301,12 @@
         });
 
 
-        poster.onChange = evt => {
+        poster.addEventListener('change', evt => {
             const [file] = poster.files
             if (file) {
                 posterPreview.src = URL.createObjectURL(file)
             }
-        }
+        });
 
         Telegram.WebApp.setHeaderColor('secondary_bg_color');
 
