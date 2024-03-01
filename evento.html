@@ -128,7 +128,7 @@
         </div>
         <p>Locandina (in formato <code>.jpeg</code> o <code>.png</code>)</p>
         <div class='form-row' style="display: flex;">
-            <span class="inline-span"><img id='posterPreview' src='#' alt='poster' style="width: 30px;" /></span>
+            <span class="inline-span"><img id='posterPreview' src='#' style="width: 30px;" /></span>
             <span class='inline-span'><input type='file' id='poster' accept=".png, .jpeg"></span>
         </div>
     </form>
@@ -289,7 +289,7 @@
             "teatro e stand-up": "🎭",
             "altro": "❔",
         };
-        
+
         categorySelect.addEventListener("change", (event) => {
             categoryEmoji.textContent = categoryToEmoji[categorySelect.value];
             if (categorySelect.value === "") {
