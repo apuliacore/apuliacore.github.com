@@ -126,9 +126,9 @@
             <span class='inline-span'><input type='date' class='bottom-border' id='publication_date'  name='publication_date' required></span>
             <span class="inline-span" id='publication_date_help'></span>
         </div>
-        <div class='form-row'>
-            <span class="inline-span"><img id='posterPreview' src='#' alt='poster'/></span>
-            <span class='inline-span'><label for='poster' name='poster'><p>Locandina (in formato <code>.jpeg</code> o <code>.png</code>)</p></label></span>
+        <p>Locandina (in formato <code>.jpeg</code> o <code>.png</code>)</p>
+        <div class='form-row' style="display: flex;">
+            <span class="inline-span"><img id='posterPreview' src='#' alt='poster' style="width: 30px;" /></span>
             <span class='inline-span'><input type='file' id='poster' accept=".png, .jpeg"></span>
         </div>
     </form>
@@ -315,12 +315,13 @@
             }
         });
 
-        // poster.onChange = evt => {
-        //     const [file] = poster.files
-        //     if (file) {
-        //         posterPreview.src = URL.createObjectURL(file)
-        //     }
-        // }
+
+        poster.onChange = evt => {
+            const [file] = poster.files
+            if (file) {
+                posterPreview.src = URL.createObjectURL(file)
+            }
+        }
 
         Telegram.WebApp.setHeaderColor('secondary_bg_color');
 
