@@ -212,8 +212,8 @@
                 startDatetimeInput.style.borderColor = "transparent transparent lightcoral transparent";
             } else {
                 startDatetimeHelpMsg.textContent = "";
-                document.getElementById("end_datetime").setAttribute("min", startDatetime.toISOString().slice(0, 16));
-                document.getElementById("publication_date").setAttribute("max", startDatetime.toISOString().slice(0, 10));
+                endDatetimeInput.setAttribute("min", startDatetime.toISOString().slice(0, 16));
+                publicationDateInput.setAttribute("max", startDatetime.toISOString().slice(0, 10));
                 startDatetimeInput.style.borderColor = "transparent transparent black transparent";
             }
         });
